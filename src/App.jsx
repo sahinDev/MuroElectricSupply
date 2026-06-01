@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Search, Phone, MapPin, MessageCircle, Star, Truck, Clock, Upload, Zap, ChevronRight, Menu, X, Filter, Navigation, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import logo from "./assets/logo.svg";
+import logo from "./assets/logo.png";
 
 const categories = [
   { name: "Wire & Cable", count: "120+ items", image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=900&auto=format&fit=crop", tags: ["NMD90", "Armoured", "Low Voltage"] },
