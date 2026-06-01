@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Search, Phone, MapPin, MessageCircle, Star, Truck, Clock, Upload, Zap, ChevronRight, Menu, X, Filter, Navigation, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import logo from "./assets/logo.svg";
 
 const categories = [
   { name: "Wire & Cable", count: "120+ items", image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=900&auto=format&fit=crop", tags: ["NMD90", "Armoured", "Low Voltage"] },
@@ -38,11 +39,16 @@ export default function MuroElectricMobileFirstSite() {
     <div className="min-h-screen bg-slate-50 text-slate-950">
       <header className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-md items-center justify-between px-4 py-3">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Contractor pricing</p>
-            <h1 className="text-lg font-black leading-tight">Muro Electric Supply</h1>
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-slate-100 ring-1 ring-slate-200">
+              <img src={logo} alt="Muro Electric Supply" className="h-8 w-8 object-contain" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Contractor pricing</p>
+              <p className="text-sm font-semibold text-slate-950">Muro Electric Supply</p>
+            </div>
           </div>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-full border p-2">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-full border p-2 shadow-sm">
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -62,6 +68,15 @@ export default function MuroElectricMobileFirstSite() {
           <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200&auto=format&fit=crop)", backgroundSize: 'cover', backgroundPosition: 'center' }} />
           <div className="relative z-10">
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
+              <div className="mb-4 flex items-center gap-3 rounded-3xl bg-white/10 px-4 py-3 ring-1 ring-white/20">
+                <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-white/90 p-2 shadow-sm">
+                  <img src={logo} alt="Muro Electric Supply" className="h-8 w-8 object-contain" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.22em] text-slate-300">Muro Electric Supply</p>
+                  <p className="text-sm font-semibold text-white">Electrical supply for contractors</p>
+                </div>
+              </div>
               <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold"><Zap size={14} /> Electrical Supply Store in North York</p>
               <h2 className="text-4xl font-black leading-tight">Find electrical materials fast.</h2>
               <p className="mt-3 text-sm leading-6 text-slate-200">Wire, breakers, panels, lighting, switches, plugs, conduit, and contractor essentials across the GTA.</p>
