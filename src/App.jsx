@@ -40,13 +40,13 @@ export default function MuroElectricMobileFirstSite() {
       <header className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-md items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-slate-100 ring-1 ring-slate-200">
+            {/* <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-slate-100 ring-1 ring-slate-200">
               <img src={logo} alt="Muro Electric Supply" className="h-8 w-8 object-contain" />
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Contractor pricing</p>
               <p className="text-sm font-semibold text-slate-950">Muro Electric Supply</p>
-            </div>
+            </div> */}
           </div>
           <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-full border p-2 shadow-sm">
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
