@@ -36,32 +36,41 @@ export default function MuroElectricMobileFirstSite() {
   }, [query]);
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-950">
-      <header className="sticky top-0 z-40 border-b bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-slate-100 ring-1 ring-slate-200">
-              <img src={logo} alt="Muro Electric Supply" className="h-8 w-8 object-contain" />
+    <div className="min-h-screen bg-white text-slate-950">
+      <header className="sticky top-0 z-40 bg-slate-900 text-white">
+        <div className="mx-auto flex max-w-screen-2xl items-center justify-between gap-4 px-4 py-4 md:px-8 lg:px-10">
+          <div className="flex shrink-0 items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center">
+              <img src={logo} alt="Muro" className="h-8 w-8 object-contain" />
             </div>
-            <div className="hidden md:block">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Contractor pricing</p>
-              <p className="text-sm font-semibold text-slate-950">Muro Electric Supply</p>
+            <p className="hidden text-lg font-bold md:block">Muro Electric</p>
+          </div>
+          <div className="hidden flex-1 max-w-xl md:flex">
+            <div className="flex w-full items-center gap-2 rounded-lg bg-slate-200 px-3 py-2">
+              <Search size={18} className="text-slate-500" />
+              <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search keyword, brand, or SKU" className="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-500" />
             </div>
           </div>
-          <div className="hidden items-center gap-3 text-sm font-semibold text-slate-700 md:flex">
-            {['Products', 'Brands', 'Request Quote', 'Directions', 'Contact'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replaceAll(' ', '-')}`} className="rounded-full px-4 py-2 hover:bg-slate-100">{item}</a>
-            ))}
+          <div className="flex items-center gap-2 md:gap-4">
+            <button className="rounded-full p-2 hover:bg-slate-800 md:hidden">
+              <Search size={20} />
+            </button>
+            <a href="#" className="hidden rounded-full p-2 hover:bg-slate-800 md:flex">
+              <MapPin size={20} />
+            </a>
+            <a href="tel:4166361071" className="hidden rounded-full p-2 hover:bg-slate-800 md:flex">
+              <Phone size={20} />
+            </a>
+            <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-full p-2 hover:bg-slate-800 md:hidden">
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="rounded-full border p-2 shadow-sm md:hidden">
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
         {menuOpen && (
-          <motion.nav initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="md:hidden mx-auto max-w-md px-4 pb-4">
-            <div className="grid gap-2 rounded-2xl bg-slate-100 p-3 text-sm font-semibold">
-              {['Products', 'Brands', 'Request Quote', 'Directions', 'Contact'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase().replaceAll(' ', '-')}`} className="rounded-xl bg-white px-4 py-3">{item}</a>
+          <motion.nav initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="md:hidden border-t border-slate-700 bg-slate-800 px-4 py-4">
+            <div className="space-y-3">
+              {['Products', 'Brands', 'Directions', 'Contact'].map((item) => (
+                <a key={item} href={`#${item.toLowerCase().replaceAll(' ', '-')}`} className="block text-sm font-semibold hover:text-orange-400">{item}</a>
               ))}
             </div>
           </motion.nav>
@@ -69,98 +78,76 @@ export default function MuroElectricMobileFirstSite() {
       </header>
 
       <main className="mx-auto max-w-screen-2xl pb-24 px-4 md:px-8 lg:px-10">
-        <section className="relative overflow-hidden bg-slate-950 px-4 py-8 text-white sm:px-6 md:px-8 lg:px-10">
-          <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200&auto=format&fit=crop)", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-          <div className="relative z-10">
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="grid gap-8 lg:grid-cols-[1.3fr_0.9fr] md:items-end">
-              <div>
-                <div className="mb-4 flex items-center gap-3 rounded-3xl bg-white/10 px-4 py-3 ring-1 ring-white/20">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-white/90 p-2 shadow-sm">
-                    <img src={logo} alt="Muro Electric Supply" className="h-8 w-8 object-contain" />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.22em] text-slate-300">Muro Electric Supply</p>
-                    <p className="text-sm font-semibold text-white">Electrical supply for contractors</p>
-                  </div>
+        <section className="relative overflow-hidden bg-white py-8 text-slate-950 md:py-12 lg:py-16">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+              <p className="text-sm uppercase tracking-[0.28em] text-orange-600 font-bold">Industrial & Commercial</p>
+              <h1 className="mt-3 text-5xl font-black leading-tight lg:text-6xl">Find electrical materials fast.</h1>
+              <p className="mt-4 text-lg leading-7 text-slate-600">Premium wire, breakers, panels, lighting, and contractor essentials. Stock across the GTA with same-day pickup and competitive pricing for professionals.</p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button className="h-12 rounded-lg bg-orange-600 px-6 font-bold hover:bg-orange-700"><Phone className="mr-2" size={20} /> Call Now: (416) 636-1071</Button>
+                <Button variant="outline" className="h-12 rounded-lg border-2 border-slate-950 px-6 font-bold hover:bg-slate-50"><MapPin className="mr-2" size={20} /> Get Directions</Button>
+              </div>
+              <div className="mt-8 flex items-center gap-4">
+                <div>
+                  <p className="text-3xl font-black text-orange-600">99%</p>
+                  <p className="text-sm text-slate-600">Stock availability</p>
                 </div>
-                <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold"><Zap size={14} /> Electrical Supply Store in North York</p>
-                <h2 className="text-4xl font-black leading-tight">Find electrical materials fast.</h2>
-                <p className="mt-3 text-sm leading-6 text-slate-200">Wire, breakers, panels, lighting, switches, plugs, conduit, and contractor essentials across the GTA.</p>
-
-                <div className="mt-5 rounded-2xl bg-white p-2 shadow-xl">
-                  <div className="flex items-center gap-2 px-3 text-slate-500">
-                    <Search size={20} />
-                    <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search: Square D, 14/2 wire, GFCI..." className="h-12 w-full bg-transparent text-sm text-slate-900 outline-none" />
-                  </div>
+                <div>
+                  <p className="text-3xl font-black text-orange-600">2hrs</p>
+                  <p className="text-sm text-slate-600">Quote response</p>
                 </div>
-
-                <div className="mt-4 grid gap-3 md:flex md:max-w-xl md:space-x-3">
-                  <Button className="h-12 rounded-2xl bg-blue-600 font-bold w-full md:w-auto"><Phone className="mr-2" size={18} /> Call Now</Button>
-                  <Button variant="secondary" className="h-12 rounded-2xl font-bold w-full md:w-auto"><MapPin className="mr-2" size={18} /> Directions</Button>
-                </div>
-
-                <div className="mt-5 flex items-center gap-2 text-sm">
-                  <span className="flex text-yellow-300"><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /></span>
-                  <span>Trusted by contractors in Toronto</span>
+                <div>
+                  <p className="text-3xl font-black text-orange-600">8+</p>
+                  <p className="text-sm text-slate-600">Top brands</p>
                 </div>
               </div>
-
-              <div className="hidden rounded-3xl bg-white/10 p-6 ring-1 ring-white/20 md:block">
-                <p className="text-sm uppercase tracking-[0.28em] text-slate-300">Built for busy teams</p>
-                <h3 className="mt-4 text-2xl font-black text-white">More than a product list</h3>
-                <ul className="mt-6 space-y-3 text-sm text-slate-200">
-                  <li>• Fast stock lookup across top contractor brands</li>
-                  <li>• Same-day pickup and delivery coverage in the GTA</li>
-                  <li>• Quote-ready inventory for projects and bids</li>
-                </ul>
-                <div className="mt-6 grid gap-3">
-                  <Button className="h-12 w-full rounded-2xl bg-blue-600 font-bold">Request a quote</Button>
-                  <Button variant="secondary" className="h-12 w-full rounded-2xl">Browse inventory</Button>
-                </div>
+            </motion.div>
+            
+            <motion.div initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg opacity-20 blur-xl" />
+                <img 
+                  src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=800&auto=format&fit=crop" 
+                  alt="Electrical supplies" 
+                  className="relative rounded-lg shadow-lg" 
+                />
               </div>
             </motion.div>
           </div>
         </section>
 
-        <section className="grid grid-cols-1 gap-2 px-4 py-4 sm:grid-cols-3 md:px-0">
-          <Card className="rounded-2xl"><CardContent className="p-3 text-center"><Clock className="mx-auto mb-2" size={20} /><p className="text-xs font-bold">Same-day pickup</p></CardContent></Card>
-          <Card className="rounded-2xl"><CardContent className="p-3 text-center"><Truck className="mx-auto mb-2" size={20} /><p className="text-xs font-bold">GTA delivery</p></CardContent></Card>
-          <Card className="rounded-2xl"><CardContent className="p-3 text-center"><ShieldCheck className="mx-auto mb-2" size={20} /><p className="text-xs font-bold">Pro pricing</p></CardContent></Card>
-        </section>
-
-        <section id="products" className="px-4 py-3">
-          <div className="mb-4 flex items-end justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Shop by category</p>
-              <h3 className="text-2xl font-black">Popular Products</h3>
-            </div>
-            <Button variant="outline" size="sm" className="rounded-full"><Filter size={15} className="mr-1" /> Filter</Button>
+        <section id="products" className="py-12">
+          <div className="mb-8">
+            <p className="text-sm uppercase tracking-[0.28em] text-orange-600 font-bold">Shop by category</p>
+            <h2 className="text-4xl font-black leading-tight">Popular Products</h2>
+            <p className="mt-2 text-slate-600">Explore our most in-demand electrical product categories across the GTA.</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
             {filteredCategories.map((cat, index) => (
               <motion.div key={cat.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.03 }}>
-                <Card className="overflow-hidden rounded-3xl shadow-sm">
-                  <div className="h-28 bg-slate-200" style={{ backgroundImage: `url(${cat.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-                  <CardContent className="p-3">
-                    <h4 className="text-sm font-black">{cat.name}</h4>
-                    <p className="mt-1 text-xs text-slate-500">{cat.count}</p>
-                    <div className="mt-3 flex items-center justify-between text-blue-700">
-                      <span className="text-xs font-bold">View items</span>
-                      <ChevronRight size={18} />
-                    </div>
-                  </CardContent>
-                </Card>
+                <a href="#" className="group block rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="aspect-square bg-slate-200 overflow-hidden" style={{ backgroundImage: `url(${cat.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    <div className="w-full h-full bg-black/20 group-hover:bg-black/40 transition-colors flex items-end justify-start p-4" />
+                  </div>
+                  <div className="bg-white p-4 border border-slate-200 rounded-b-lg">
+                    <h3 className="font-bold text-slate-950">{cat.name}</h3>
+                    <p className="text-xs text-slate-500 mt-1">{cat.count}</p>
+                  </div>
+                </a>
               </motion.div>
             ))}
           </div>
         </section>
 
-        <section id="brands" className="px-4 py-6">
-          <p className="text-xs font-bold uppercase tracking-widest text-blue-700">Searchable SEO section</p>
-          <h3 className="text-2xl font-black">Brands contractors ask for</h3>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {brands.map((brand) => <span key={brand} className="rounded-full bg-white px-4 py-2 text-sm font-bold shadow-sm">{brand}</span>)}
+        <section id="brands" className="py-12">
+          <div className="mb-8">
+            <p className="text-sm uppercase tracking-[0.28em] text-orange-600 font-bold">Top brands</p>
+            <h2 className="text-4xl font-black leading-tight">Brands contractors ask for</h2>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {brands.map((brand) => <span key={brand} className="rounded-lg bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-950 hover:bg-orange-100 transition-colors">{brand}</span>)}
           </div>
         </section>
 
