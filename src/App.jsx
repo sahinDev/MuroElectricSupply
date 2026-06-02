@@ -44,7 +44,6 @@ export default function MuroElectricMobileFirstSite() {
               <img src={logo} alt="Muro Electric Supply" className="h-8 w-8 object-contain" />
             </div>
             <div className="hidden md:block">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Contractor pricing</p>
               <p className="text-sm font-semibold text-slate-950">Muro Electric Supply</p>
             </div>
           </div>
