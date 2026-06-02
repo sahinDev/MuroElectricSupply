@@ -68,11 +68,11 @@ export default function MuroElectricMobileFirstSite() {
         )}
       </header>
 
-      <main className="mx-auto max-w-7xl pb-24 px-4 md:px-6">
-        <section className="relative overflow-hidden bg-slate-950 px-4 py-8 text-white sm:px-6 md:px-8">
+      <main className="mx-auto max-w-screen-2xl pb-24 px-4 md:px-8 lg:px-10">
+        <section className="relative overflow-hidden bg-slate-950 px-4 py-8 text-white sm:px-6 md:px-8 lg:px-10">
           <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200&auto=format&fit=crop)", backgroundSize: 'cover', backgroundPosition: 'center' }} />
           <div className="relative z-10">
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="grid gap-8 md:grid-cols-[1.25fr_0.75fr] md:items-end">
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="grid gap-8 lg:grid-cols-[1.3fr_0.9fr] md:items-end">
               <div>
                 <div className="mb-4 flex items-center gap-3 rounded-3xl bg-white/10 px-4 py-3 ring-1 ring-white/20">
                   <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-white/90 p-2 shadow-sm">
@@ -113,7 +113,7 @@ export default function MuroElectricMobileFirstSite() {
                   <li>• Same-day pickup and delivery coverage in the GTA</li>
                   <li>• Quote-ready inventory for projects and bids</li>
                 </ul>
-                <div className="mt-6 space-y-3">
+                <div className="mt-6 grid gap-3">
                   <Button className="h-12 w-full rounded-2xl bg-blue-600 font-bold">Request a quote</Button>
                   <Button variant="secondary" className="h-12 w-full rounded-2xl">Browse inventory</Button>
                 </div>
@@ -162,6 +162,30 @@ export default function MuroElectricMobileFirstSite() {
           <div className="mt-4 flex flex-wrap gap-2">
             {brands.map((brand) => <span key={brand} className="rounded-full bg-white px-4 py-2 text-sm font-bold shadow-sm">{brand}</span>)}
           </div>
+        </section>
+
+        <section className="hidden md:grid grid-cols-3 gap-4 px-4 py-6 lg:px-0">
+          <Card className="rounded-3xl bg-white shadow-lg">
+            <CardContent className="p-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Local availability</p>
+              <p className="mt-4 text-3xl font-black text-slate-950">99%</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Most contractor essentials are stocked and ready for pickup in North York.</p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-3xl bg-white shadow-lg">
+            <CardContent className="p-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Trusted brands</p>
+              <p className="mt-4 text-3xl font-black text-slate-950">8+</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Top manufacturer lines like Square D, Siemens, Eaton, and Leviton are available.</p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-3xl bg-white shadow-lg">
+            <CardContent className="p-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Speed</p>
+              <p className="mt-4 text-3xl font-black text-slate-950">2 hrs</p>
+              <p className="mt-3 text-sm leading-6 text-slate-600">Typical response time for quote requests and order confirmations.</p>
+            </CardContent>
+          </Card>
         </section>
 
         <section className="px-4 py-3">
@@ -230,6 +254,21 @@ export default function MuroElectricMobileFirstSite() {
           </Card>
         </section>
       </main>
+
+      <footer className="hidden md:block border-t border-slate-200 bg-white/90 py-6">
+        <div className="mx-auto flex max-w-screen-2xl flex-col gap-6 px-4 md:px-8 lg:px-10 xl:flex-row xl:items-center xl:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Muro Electric Supply</p>
+            <p className="mt-1 text-sm text-slate-700">1140 Sheppard Ave W, Unit 15, North York, ON</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-slate-700">
+            <a href="#products" className="rounded-full px-3 py-2 hover:bg-slate-100">Products</a>
+            <a href="#brands" className="rounded-full px-3 py-2 hover:bg-slate-100">Brands</a>
+            <a href="#directions" className="rounded-full px-3 py-2 hover:bg-slate-100">Directions</a>
+            <a href="tel:4166361071" className="rounded-full bg-blue-700 px-3 py-2 text-white">Call</a>
+          </div>
+        </div>
+      </footer>
 
       <div className="fixed bottom-0 left-0 right-0 z-50 border-t bg-white md:hidden">
         <div className="mx-auto grid max-w-md grid-cols-4 gap-1 px-2 py-2 text-xs font-bold text-slate-700">
