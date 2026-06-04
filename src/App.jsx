@@ -119,7 +119,7 @@ export default function MuroElectricMobileFirstSite() {
             <div className="mt-6 grid gap-6 md:grid-cols-2">
               <div className="space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Location</p>
-                <p className="text-sm font-semibold text-slate-950">1140 Sheppard Ave W</p>
+                <p className="text-sm font-semibold text-slate-950">1140 Sheppard Ave W Unit 15, North York, ON M3K 2A2</p>
                 <p className="text-sm text-slate-700">
                   Office <a href="tel:4166361071" className="text-blue-600 hover:underline">(416) 636-1071</a><br />
                   Front Desk <a href="tel:4166369138" className="text-blue-600 hover:underline">(416) 636-9138</a>
